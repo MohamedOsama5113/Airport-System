@@ -13,29 +13,22 @@ A comprehensive web-based security management system for airports, featuring adm
 - **Responsive Design**: Optimized for desktop and mobile devices
 - **Modern UI**: Built with Tailwind CSS for a clean, professional interface
 
-## 🚀 Try It Live
+## 🚀 Try It Live - Now Available!
 
-Want to test the application without setting it up locally? Deploy it instantly on Vercel (recommended - takes 2 minutes):
+### 🌐 Live Demo
+**[Click here to open the live application](https://mohamedosama5113.github.io/Airport-System/)**
 
-### Deploy on Vercel (Easiest)
-1. Click the button below to deploy directly to Vercel:
+The application is already deployed on GitHub Pages and ready to use immediately!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/MohamedOsama5113/Airport-System&project-name=airport-system&repository-name=Airport-System)
-
-2. Log in with your GitHub account
-3. Click "Deploy" and wait ~2 minutes
-4. Your live demo URL will be ready!
-
-### Or Deploy on GitHub Pages
-1. Fork this repository to your GitHub account
-2. Go to Settings → Pages
-3. Set Source to "GitHub Actions"
-4. Trigger a workflow run
-5. Your site will be live at `https://yourusername.github.io/Airport-System`
-
-**Default Demo Credentials:**
+**Demo Credentials:**
 - Email: `admin@airport.com`
 - Password: `any password`
+
+### Alternative: Deploy Your Own Copy on Vercel (takes 2 minutes)
+
+Click the button below to deploy directly to Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/MohamedOsama5113/Airport-System&project-name=airport-system&repository-name=Airport-System)
 
 ## Tech Stack
 
