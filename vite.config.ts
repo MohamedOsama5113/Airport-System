@@ -1,11 +1,13 @@
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/Airport-System/' : '/',
+  // THE FIX: Only apply the subfolder path if GitHub Actions is running the build.
+  // Vercel and local development will default to '/'
+  base: process.env.GITHUB_ACTIONS ? '/Airport-System/' : '/',
+
   plugins: [react(), tailwindcss()],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
