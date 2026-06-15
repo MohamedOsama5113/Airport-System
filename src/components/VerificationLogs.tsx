@@ -7,7 +7,7 @@ import { getLogs, VerificationLog } from '../utils/mockStorage';
 export function VerificationLogs() {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'Allowed' | 'Banned' | 'Unknown'>('all');
-  const [dateFilter, setDateFilter] = useState('today');
+  const [dateFilter, setDateFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
