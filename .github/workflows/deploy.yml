@@ -28,7 +28,12 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: npm install --legacy-peer-deps --force
+      # Removed --force to prevent npm from skipping optional platform dependencies
+      run: npm install --legacy-peer-deps
+
+    - name: Fix Rollup Linux binary issue
+      # Explicitly injects the missing Linux package required by Vite/Rollup on Ubuntu
+      run: npm install @rollup/rollup-linux-x64-gnu --no-save
 
     - name: Build project
       run: npm run build
@@ -36,7 +41,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: './build'
+        # Changed from './build' to './dist' because Vite outputs to 'dist' by default
+        path: './dist'
 
     - name: Deploy to GitHub Pages
       id: deployment
