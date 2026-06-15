@@ -1,49 +1,59 @@
 name: Deploy to GitHub Pages
 
+# Trigger the workflow on pushes to the main branch
 on:
   push:
-    branches: [ main ]
+    branches: ["main"]
+  workflow_dispatch:
+
+# Set permissions for the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          # Note: We are deliberately skipping the standard cache mechanism 
+          # here to avoid bringing back the Windows package-lock.json.
 
+      # THE FIX: Bypassing the NPM lockfile bug for Tailwind CSS v4 on Linux
+      - name: Install dependencies (Cross-Platform Fix)
+        run: |
+          rm -rf package-lock.json node_modules
+          npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Note: Set this to './build' because of your vite.config.ts settings.
+          # If you changed outDir to 'dist' earlier, change this to './dist'.
+          path: ./build 
+
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
+    needs: build
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Setup Node.js 18
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
-
-    - name: Install dependencies
-      # Removed --force to prevent npm from skipping optional platform dependencies
-      run: npm install --legacy-peer-deps
-
-    - name: Fix Rollup Linux binary issue
-      # Explicitly injects the missing Linux package required by Vite/Rollup on Ubuntu
-      run: npm install @rollup/rollup-linux-x64-gnu --no-save
-
-    - name: Build project
-      run: npm run build
-
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        # Changed from './build' to './dist' because Vite outputs to 'dist' by default
-        path: './dist'
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
