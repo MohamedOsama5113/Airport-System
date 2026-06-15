@@ -31,8 +31,8 @@ A comprehensive web-based security management system for airports, featuring adm
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/airport-system.git
-cd airport-system
+git clone https://github.com/MohamedOsama5113/Airport-System.git
+cd Airport-System
 ```
 
 2. Install dependencies:
