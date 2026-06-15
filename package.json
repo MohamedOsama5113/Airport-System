@@ -1,5 +1,5 @@
 {
-  "name": "تطبيق مشابه",
+  "name": "Airport System",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -55,6 +55,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.27",
+    "lightningcss": "^1.32.0",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
     "vite": "^6.3.0"
