@@ -94,13 +94,6 @@ export function AdminLogin() {
               Sign In
             </button>
           </form>
-
-          {/* Demo Credentials */}
-          <div className="mt-5 sm:mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-            <p className="text-xs text-gray-600 mb-2">Demo Credentials:</p>
-            <p className="text-xs text-gray-700">Email: <span className="text-blue-600">admin@airport.com</span></p>
-            <p className="text-xs text-gray-700">Password: <span className="text-blue-600">Any password</span></p>
-          </div>
         </div>
 
         {/* Footer */}
