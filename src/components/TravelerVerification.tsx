@@ -388,10 +388,6 @@ export function TravelerVerification() {
                       <p className={`text-sm mt-3 ${verificationTheme.text} dark:text-slate-200`}>{verificationTheme.summary}</p>
                     </div>
 
-                    <div className="p-4 bg-blue-50 border border-blue-200 dark:bg-blue-900/20 dark:border-blue-700/40 rounded-xl">
-                      <p className="text-xs text-blue-700 mb-2">Backend Message</p>
-                      <p className="text-sm text-blue-900 dark:text-blue-200">{result.message}</p>
-                    </div>
                   </div>
                 </div>
               ) : null}
