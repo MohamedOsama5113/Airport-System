@@ -222,18 +222,18 @@ export function TravelerVerification() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
             {/* Scan Section */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 dark:border-slate-700">
-              <h2 className="text-xl text-gray-900 dark:text-slate-100 mb-6">Iris Scan Upload</h2>
+            <div className="h-full bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-4 md:p-5 border border-gray-100 dark:border-slate-700 flex flex-col">
+              <h2 className="text-lg md:text-xl text-gray-900 dark:text-slate-100 mb-4">Iris Scan Upload</h2>
 
               {!selectedImage ? (
-                <div className="space-y-4">
+                <div className="space-y-3 flex-1 flex flex-col justify-between">
                   <div
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
                     onDrop={handleDrop}
-                    className={`border-2 border-dashed rounded-2xl p-8 md:p-12 text-center transition ${isDragging
+                    className={`border-2 border-dashed rounded-2xl p-6 md:p-8 text-center transition ${isDragging
                       ? 'border-blue-500 bg-blue-50 dark:bg-slate-800'
                       : 'border-gray-300 dark:border-slate-600 hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-slate-800'
                       }`}
@@ -249,19 +249,19 @@ export function TravelerVerification() {
                       htmlFor="iris-upload"
                       className="cursor-pointer flex flex-col items-center"
                     >
-                      <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mb-4">
-                        <Upload className="w-10 h-10 text-blue-600" />
+                      <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-3">
+                        <Upload className="w-8 h-8 text-blue-600" />
                       </div>
-                      <p className="text-lg text-gray-900 dark:text-slate-100 mb-2">Upload Iris Scan</p>
+                      <p className="text-base md:text-lg text-gray-900 dark:text-slate-100 mb-1.5">Upload Iris Scan</p>
                       <p className="text-sm text-gray-500 dark:text-slate-400">
                         {isDragging ? 'Drop the image here' : 'Click to browse or drag and drop'}
                       </p>
-                      <p className="text-xs text-gray-400 dark:text-slate-500 mt-2">Supported: JPG, PNG</p>
+                      <p className="text-xs text-gray-400 dark:text-slate-500 mt-1.5">Supported: JPG, PNG</p>
                     </label>
                   </div>
 
-                  <div className="bg-blue-50 border border-blue-200 dark:bg-blue-900/20 dark:border-blue-700/40 rounded-xl p-4">
-                    <div className="flex gap-3">
+                  <div className="bg-blue-50 border border-blue-200 dark:bg-blue-900/20 dark:border-blue-700/40 rounded-xl p-3.5">
+                    <div className="flex gap-2.5">
                       <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-300 shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm text-blue-900 dark:text-blue-200 mb-1">Scanning Instructions</p>
@@ -276,8 +276,8 @@ export function TravelerVerification() {
                   </div>
                 </div>
               ) : (
-                <div className="space-y-4">
-                  <div className="relative aspect-square bg-gray-100 dark:bg-slate-800 rounded-2xl overflow-hidden">
+                <div className="space-y-3 flex-1 flex flex-col">
+                  <div className="relative aspect-square bg-gray-100 dark:bg-slate-800 rounded-2xl overflow-hidden w-full max-w-140 mx-auto">
                     <img
                       src={selectedImage}
                       alt="Iris scan"
@@ -297,13 +297,13 @@ export function TravelerVerification() {
                     <div className="flex flex-col sm:flex-row gap-3">
                       <button
                         onClick={handleScan}
-                        className="flex-1 bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-4 rounded-xl transition shadow-lg hover:scale-[1.01]"
+                        className="flex-1 bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-3 rounded-xl transition shadow-lg hover:scale-[1.01]"
                       >
                         Start Verification
                       </button>
                       <button
                         onClick={handleReset}
-                        className="px-6 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 py-4 rounded-xl transition"
+                        className="px-6 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 py-3 rounded-xl transition"
                       >
                         Reset
                       </button>
@@ -313,7 +313,7 @@ export function TravelerVerification() {
                   {result && (
                     <button
                       onClick={handleReset}
-                      className="w-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 py-4 rounded-xl transition"
+                      className="w-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 py-3 rounded-xl transition"
                     >
                       New Scan
                     </button>
@@ -323,25 +323,25 @@ export function TravelerVerification() {
             </div>
 
             {/* Results Section */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 dark:border-slate-700">
-              <h2 className="text-xl text-gray-900 dark:text-slate-100 mb-6">Verification Results</h2>
+            <div className="h-full bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-4 md:p-5 border border-gray-100 dark:border-slate-700 flex flex-col">
+              <h2 className="text-lg md:text-xl text-gray-900 dark:text-slate-100 mb-4">Verification Results</h2>
 
               {!result && !scanError ? (
-                <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <div className="w-24 h-24 bg-gray-100 rounded-2xl flex items-center justify-center mb-4">
-                    <ScanEye className="w-12 h-12 text-gray-400" />
+                <div className="flex-1 flex flex-col items-center justify-center py-10 text-center">
+                  <div className="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mb-3">
+                    <ScanEye className="w-10 h-10 text-gray-400" />
                   </div>
                   <p className="text-gray-500 dark:text-slate-400">Waiting for scan...</p>
-                  <p className="text-sm text-gray-400 dark:text-slate-500 mt-2">Upload an iris scan to begin verification</p>
+                  <p className="text-sm text-gray-400 dark:text-slate-500 mt-1.5">Upload an iris scan to begin verification</p>
                 </div>
               ) : scanError ? (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
+                <div className="flex-1 p-4 bg-red-50 border border-red-200 rounded-xl">
                   <p className="text-sm text-red-800">{scanError}</p>
                 </div>
               ) : result && verificationTheme ? (
-                <div className="space-y-6 animate-in fade-in duration-300">
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-slate-800 rounded-xl">
+                <div className="flex-1 space-y-4 animate-in fade-in duration-300">
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-slate-800 rounded-xl">
                       <User className="w-5 h-5 text-gray-600 dark:text-slate-300 mt-0.5" />
                       <div className="flex-1">
                         <p className="text-xs text-gray-500 dark:text-slate-400 mb-1">Person ID</p>
@@ -349,7 +349,7 @@ export function TravelerVerification() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-slate-800 rounded-xl">
+                    <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-slate-800 rounded-xl">
                       <FileText className="w-5 h-5 text-gray-600 dark:text-slate-300 mt-0.5" />
                       <div className="flex-1">
                         <p className="text-xs text-gray-500 dark:text-slate-400 mb-1">Predicted Label</p>
@@ -357,7 +357,7 @@ export function TravelerVerification() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-slate-800 rounded-xl">
+                    <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-slate-800 rounded-xl">
                       <MapPin className="w-5 h-5 text-gray-600 dark:text-slate-300 mt-0.5" />
                       <div className="flex-1">
                         <p className="text-xs text-gray-500 dark:text-slate-400 mb-1">Confidence</p>
@@ -371,7 +371,7 @@ export function TravelerVerification() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-slate-800 rounded-xl">
+                    <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-slate-800 rounded-xl">
                       <Calendar className="w-5 h-5 text-gray-600 dark:text-slate-300 mt-0.5" />
                       <div className="flex-1">
                         <p className="text-xs text-gray-500 dark:text-slate-400 mb-1">Scan Duration</p>
@@ -379,7 +379,7 @@ export function TravelerVerification() {
                       </div>
                     </div>
 
-                    <div className={`p-4 border rounded-xl ${verificationTheme.panel}`}>
+                    <div className={`p-3 border rounded-xl ${verificationTheme.panel}`}>
                       <p className="text-xs mb-1 dark:text-slate-300">Travel Status</p>
                       <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs border ${verificationTheme.badge}`}>
                         {verificationTheme.icon}
